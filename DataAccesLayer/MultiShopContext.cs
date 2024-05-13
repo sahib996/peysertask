@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Drawing;
+using MultiShop.Models;
+
 
 namespace MultiShop.DataAccesLayer
 {
@@ -8,11 +9,11 @@ namespace MultiShop.DataAccesLayer
         public MultiShopContext(DbContextOptions options) : base(options)
         {           
         }
-        public DbSet<Color> Colors { get; set; }
+        public DbSet<Color> Colors  { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-GNV6364\\SQLEXPRESS;DataBase=MultiShop;Trusted_Connection=true;");
-            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("Server=DESKTOP-GNV6364\\SQLEXPRESS;DataBase=MultiShop;Trusted_Connection=true;TrustServerCertificate=true");
+            base.OnConfiguring(optionsBuilder);     
         }
     }
 }
